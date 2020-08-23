@@ -1,5 +1,7 @@
 'use strict';
 
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
+
 // CODELAB: Update cache names any time any of the cached files change.
 const CACHE_NAME = 'static-cache-v5';
 const DATA_CACHE_NAME = 'data-cache-v1';
@@ -21,6 +23,18 @@ const FILES_TO_CACHE = [
     '/images/icons/icon-256.png',
     '/images/icons/icon-512.png',
 ];
+
+if (workbox) {
+    console.log(`Yay! Workbox is loaded 🎉`);
+} else {
+    console.log(`Boo! Workbox didn't load 😬`);
+}
+
+
+workbox.routing.registerRoute(
+    /\.js$/,
+    new workbox.strategies.CacheFirst()
+);
 
 self.addEventListener('install', (evt) => {
     console.log('[ServiceWorker] Install');
