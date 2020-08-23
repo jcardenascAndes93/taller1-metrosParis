@@ -15,31 +15,30 @@
 -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="canonical" href="https://weather-pwa-sample.firebaseapp.com/final/">
+    <link rel="canonical" href="https://paris-metro-c8f2f.firebaseapp.com/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paris Métro 1</title>
     <link rel="stylesheet" type="text/css" href="styles/inline.css">
     <link rel="manifest" href="/manifest.json">
-    <meta name="description" content="App para consultar rutas del metro de París" />
+    <meta name="description" content="App para consultar rutas del metro de París">
     <meta name="theme-color" content="#FFD100" />
     <!-- CODELAB: Add iOS meta tags and icons -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Paris routes">
-    <link rel="apple-touch-icon" href="/images/icons/icon-128.png">
-
+    <meta name="apple-mobile-web-app-title" content="PWA Paris">
+    <link rel="apple-touch-icon" href="/images/icons/public-transport-subway128.png">
 </head>
 
 <body>
 
     <header class="header">
-        <h1 class="header__title">Paris Métro 1</h1>
-        <button id="butInstall" aria-label="Install" hidden class="headerButton"></button>
+        <h1 class="header__title" style="color: black">Paris Métro 1</h1>
+        <button id="butInstall" class="headerButton" aria-label="Install" hidden></button>
         <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
         <button id="butAdd" class="headerButton" aria-label="Add"></button>
     </header>
@@ -104,6 +103,7 @@
 
     <!-- Uncomment the line below when ready to test with fake data -->
     <script src="scripts/app.js" async></script>
+    <script src="/scripts/install.js"></script>
     <script>
         // Register service worker.
         if ('serviceWorker' in navigator) {
@@ -115,8 +115,10 @@
             });
         }
     </script>
-    <script src="/scripts/install.js"></script>
+    <script src="/__/firebase/6.4.0/firebase-app.js"></script>
 
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
 </body>
 
 </html>

@@ -138,6 +138,7 @@
         }
 
         if (app.isLoading) {
+            window.cardLoadTime = performance.now();
             app.spinner.setAttribute('hidden', true);
             app.container.removeAttribute('hidden');
             app.isLoading = false;
@@ -240,6 +241,7 @@
             result.schedules = response.result.schedules;
             app.updateTimetableCard(result);
         });
+
     app.getScheduleFromNetwork('metros/1/bastille/A')
         .then((response) => {
             if (!response) {
@@ -250,6 +252,8 @@
             result.label = 'Bastille, Direction La Défense';
             result.created = response._metadata.date;
             result.schedules = response.result.schedules;
+            window.FirstGetAPI = performance.now();
             app.updateTimetableCard(result);
         });
+
 })();
