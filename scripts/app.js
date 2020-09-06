@@ -119,6 +119,7 @@
             card.removeAttribute('hidden');
             app.container.appendChild(card);
             app.visibleCards[key] = card;
+            //window.cardLoadTime = performance.now();
         } else { // updating
             var lastUpdated = card.querySelector('.card-last-updated').textContent
                 // If the data on the element is newer, skip the update.
@@ -179,6 +180,7 @@
     app.getScheduleFromNetwork = function(key, label) {
         return fetch(`https://api-ratp.pierre-grimaud.fr/v4/schedules/${key}`)
             .then((response) => {
+                window.cardAPITime = performance.now();
                 return response.json();
             })
             .catch(() => {
