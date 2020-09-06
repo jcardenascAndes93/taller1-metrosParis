@@ -180,7 +180,7 @@
     app.getScheduleFromNetwork = function(key, label) {
         return fetch(`https://api-ratp.pierre-grimaud.fr/v4/schedules/${key}`)
             .then((response) => {
-                window.cardAPITime = performance.now();
+                //window.cardAPITime = performance.now();
                 return response.json();
             })
             .catch(() => {
